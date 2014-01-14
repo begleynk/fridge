@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+  <strong>Features:</strong>
+
+<table>
+  <thead>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Description</td>
+  </thead>
+  <tbody>
+<% @features.each do |feature| %>
+    <tr>
+      <td><%= link_to(feature.id, project_feature_path(@project, feature)) %></td>
+      <td><%= feature.title %></td>
+      <td><%= feature.descripion %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
