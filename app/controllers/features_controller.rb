@@ -10,7 +10,7 @@ class FeaturesController < ApplicationController
   # GET /features/1
   # GET /features/1.json
   def show
-    @project = params[:id]
+    @project = Project.find_by_id(params[:id])
   end
 
   # GET /features/new

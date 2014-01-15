@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @scenario.description %>
+</p>
+
+<p>
+  <strong>Background:</strong>
+  <%= @scenario.background %>
+</p>
+
+<p>
+  <strong>Feature:</strong>
+  <%= @scenario.feature.title %>
+</p>
+
+<%= link_to 'Edit', edit_feature_scenario_path(@feature, @scenario) %> |
+<%= link_to 'Back', feature_scenarios_path(@feature) %>

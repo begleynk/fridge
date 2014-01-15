@@ -15,5 +15,20 @@
   <%= @feature.project.title %>
 </p>
 
+<table class="table">
+  <thead>
+    <td>ID</td>
+    <td>Description</td>
+  </thead>
+  <tbody>
+<% @feature.scenarios.each do |scen| %>
+    <tr>
+      <td><%= link_to(scen.id, feature_scenario_path(@feature, scen)) %></td>
+      <td><%= scen.description %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_feature_path(@feature) %> |
 <%= link_to 'Back', features_path %>
