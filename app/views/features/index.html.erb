@@ -17,7 +17,7 @@
       <tr>
         <td><%= feature.title %></td>
         <td><%= feature.descripion %></td>
-        <td><%= feature.project %></td>
+        <td><%= feature.project.title %></td>
         <td><%= link_to 'Show', feature %></td>
         <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
         <td><%= link_to 'Destroy', feature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
