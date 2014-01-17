@@ -1,6 +1,8 @@
 Fridge::Application.routes.draw do
 
 
+  resources :steps
+
   resources :projects 
   
   resources :features do
