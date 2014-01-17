@@ -3,10 +3,10 @@ Fridge::Application.routes.draw do
 
   resources :steps
 
-  resources :projects 
-  
-  resources :features do
-    resources :scenarios
+  resources :projects do
+    resources :features, :except => [:index] do
+      resources :scenarios, :except => [:index]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

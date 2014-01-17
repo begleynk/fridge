@@ -1,16 +1,11 @@
 class ScenariosController < ApplicationController
   before_action :set_scenario, only: [:show, :edit, :update, :destroy]
 
-  # GET /scenarios
-  # GET /scenarios.json
-  def index
-    @scenarios = Scenario.all
-  end
-
   # GET /scenarios/1
   # GET /scenarios/1.json
   def show
     @feature = @scenario.feature
+    @project = @feature.project
   end
 
   # GET /scenarios/new

@@ -1,12 +1,6 @@
 class FeaturesController < ApplicationController
   before_action :set_feature, only: [:show, :edit, :update, :destroy]
 
-  # GET /features
-  # GET /features.json
-  def index
-    @features = Feature.all
-  end
-
   # GET /features/1
   # GET /features/1.json
   def show

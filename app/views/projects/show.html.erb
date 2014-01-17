@@ -19,7 +19,7 @@
   <tbody>
 <% @features.each do |feature| %>
     <tr>
-      <td><%= link_to(feature.id, feature_path(feature)) %></td>
+      <td><%= link_to feature.id, project_feature_path(@project, feature) %></td>
       <td><%= feature.title %></td>
       <td><%= feature.descripion %></td>
     </tr>
@@ -27,6 +27,6 @@
   </tbody>
 </table>
 
-<%= link_to 'New Feature!', new_feature_path(@project) %> |
+<%= link_to 'New Feature!', new_project_feature_path(@project) %> |
 <%= link_to 'Edit Project', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
