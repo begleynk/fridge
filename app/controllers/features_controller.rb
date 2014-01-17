@@ -4,12 +4,13 @@ class FeaturesController < ApplicationController
   # GET /features/1
   # GET /features/1.json
   def show
-    @project = Project.find_by_id(params[:id])
+    @project = Project.find_by_id(params[:project_id])
   end
 
   # GET /features/new
   def new
     @feature = Feature.new
+    @project = Project.find(params[:project_id])
   end
 
   # GET /features/1/edit
@@ -19,12 +20,13 @@ class FeaturesController < ApplicationController
   # POST /features
   # POST /features.json
   def create
-    @feature = Feature.new(feature_params)
+    @project = Project.find(params[:project_id])
+    @feature = @project.features.create(feature_params)
 
     respond_to do |format|
       if @feature.save
-        format.html { redirect_to @feature, notice: 'Feature was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @feature }
+        format.html { redirect_to project_path(@project), notice: 'Feature was successfully created.' }
+        format.json { render action: 'show', status: :created, location: project_feature_path(@feature.project, @feature) }
       else
         format.html { render action: 'new' }
         format.json { render json: @feature.errors, status: :unprocessable_entity }
