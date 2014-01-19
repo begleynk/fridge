@@ -11,6 +11,8 @@ class ScenariosController < ApplicationController
   # GET /scenarios/new
   def new
     @scenario = Scenario.new
+    @feature = Feature.find(params[:feature_id])
+    @project = Project.find(params[:project_id])
   end
 
   # GET /scenarios/1/edit
@@ -20,11 +22,13 @@ class ScenariosController < ApplicationController
   # POST /scenarios
   # POST /scenarios.json
   def create
-    @scenario = Scenario.new(scenario_params)
+    @feature = Feature.find(params[:feature_id]) 
+    @scenario = @feature.scenarios.create(scenario_params)
+    @project = @feature.project
 
     respond_to do |format|
       if @scenario.save
-        format.html { redirect_to @scenario, notice: 'Scenario was successfully created.' }
+        format.html { redirect_to project_feature_path(@project, @feature), notice: 'Scenario was successfully created.' }
         format.json { render action: 'show', status: :created, location: @scenario }
       else
         format.html { render action: 'new' }
