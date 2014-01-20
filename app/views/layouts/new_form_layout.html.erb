@@ -8,9 +8,19 @@
 </head>
 <body>
 
-<div class="container">
-  <h1 class="page-header"><%= link_to "Fridge", root_path %><small> | Your friendly neighborhood cucumber feature container</small></h1>
-</div>
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Fridge | Cucumber feature storage", root_path, :class => "navbar-brand" %>
+    </div>
+  </div>
+</nav>
 
 <div class="container">
   <%= yield %>
