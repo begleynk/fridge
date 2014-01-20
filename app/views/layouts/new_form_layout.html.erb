@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fridge</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-header"><%= link_to "Fridge", root_path %><small> | Your friendly neighborhood cucumber feature container</small></h1>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+
+</body>
+</html>
