@@ -5,7 +5,7 @@ Fridge::Application.routes.draw do
 
   resources :projects do
     resources :features, :except => [:index] do
-      resources :scenarios, :except => [:index]
+      resources :scenarios, :except => [:index, :show]
     end
   end
 
