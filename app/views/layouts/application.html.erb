@@ -13,6 +13,18 @@
 </div>
 
 <div class="container">
+  <ol class="breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+    <% if @project %> 
+      <li><%= link_to @project.title, project_path(@project) %></li>
+    <% end %>
+    <% if @feature %>
+      <li><%= link_to @feature.title, project_feature_path(@project, @feature) %></li>
+    <% end %>
+  </ol>
+</div>
+
+<div class="container">
   <%= yield %>
 </div>
 
