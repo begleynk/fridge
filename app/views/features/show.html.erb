@@ -1,35 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @feature.title %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= @feature.title %></h2>
+    <p class="lead"><%= @feature.descripion %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Descripion:</strong>
-  <%= @feature.descripion %>
-</p>
+<hr>
 
-<p>
-  <strong>Project:</strong>
-  <%= @feature.project.title %>
-</p>
-
-<table class="table">
-  <thead>
-    <td>ID</td>
-    <td>Description</td>
-  </thead>
-  <tbody>
 <% @feature.scenarios.each do |scen| %>
-    <tr>
-      <td><%= link_to(scen.id, project_feature_scenario_path(@project, @feature, scen)) %></td>
-      <td><%= scen.description %></td>
-    </tr>
+  <div class="row">
+    <div class="col-md-12">
+        <h3>Feature: <%= scen.description %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <% scen.steps.each do |step| %>
+        <p><%= step.description %></p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-  </tbody>
-</table>
 
+<hr>
 
 <%= link_to 'New Scenario!', new_project_feature_scenario_path(@project, @feature) %> |
 <%= link_to 'Edit', edit_project_feature_path(@project, @feature) %> |
